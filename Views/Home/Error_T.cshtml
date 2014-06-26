@@ -1,0 +1,244 @@
+﻿@{
+    ViewBag.Title = "Error_T";
+}
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<div class="wrapper col0">
+  <div id="topbar">
+    <div id="slidepanel">
+      <div class="topbox">
+        
+      </div>
+      <div class="topbox">
+        <h2>Teachers Login Here</h2>
+        <form action="/Admin/Teacher" method="post" id="login_T" onsubmit="return validate_T();">
+          <fieldset>
+            <legend>Teachers Login Form</legend>
+            <label for="teachername">Username:
+              <input type="text" name="teachername" id="teachername" value="" />
+            </label>
+              <div>Enter valid username & passowrd </div>
+            <label for="teacherpass">Password:
+              <input type="password" name="teacherpass" id="teacherpass" value="" />
+            </label>
+            <label for="teacherremember">
+              <input class="checkbox" type="checkbox" name="teacherremember" id="teacherremember" checked="checked" />
+              Remember me</label>
+            <p>
+              <input type="submit" name="teacherlogin" id="teacherlogin"  />
+              &nbsp;
+              <input type="reset" name="teacherreset" id="teacherreset" value="Reset" />
+            </p>
+          </fieldset>
+        </form>
+      </div>
+      <div class="topbox last">
+        <h2>Pupils Login Here</h2>
+        <form action="/Admin/Student" method="post" id="login_Std" onsubmit="return validate_Std();">
+          <fieldset>
+            <legend>Pupils Login Form</legend>
+            <label for="pupilname">Username:
+              <input type="text" name="pupilname" id="pupilname" value="" />
+            </label>
+            <label for="pupilpass">Password:
+              <input type="password" name="pupilpass" id="pupilpass" value="" />
+            </label>
+            <label for="pupilremember">
+              <input class="checkbox" type="checkbox" name="pupilremember" id="pupilremember" checked="checked" />
+              Remember me</label>
+            <p>
+              <input type="submit" name="pupillogin" id="pupillogin" value="Login" />
+              &nbsp;
+              <input type="reset" name="pupilreset" id="pupilreset" value="Reset" />
+            </p>
+          </fieldset>
+        </form>
+      </div>
+      <br class="clear" />
+    </div>
+    <div id="loginpanel">
+      <ul>
+        <li class="left">Log In Here &raquo;</li>
+        <li class="right" id="toggle"><a id="slideit" href="#slidepanel">Administration</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+<script>
+
+    function validate_T() {
+        var Tname = $('#teachername').val();
+        var Tpassword = $('#teacherpass').val();
+        if (Tname == "") {
+            alert('Enter Name of teacher');
+            return false;
+        }
+        if (Tpassword == "") {
+            alert('Enter Password of teacher');
+            return false;
+        }
+        // return true;
+        
+        var check = true;
+      
+            $.getJSON("/Home/CheckUserName?Tname=" + Tname, function (data) {
+               
+                if (data){ 
+                    return true;
+                }
+                else
+                {
+                    alert('Enter Valid User Name');
+                    return false;
+                }
+            });
+    }
+    function validate_Std()
+    {
+        var Tname = $('#pupilname').val();
+        var Tpassword = $('#pupilpass').val();
+        if (Tname == "") {
+            alert('Enter Name of Student');
+            return false;
+        }
+        if (Tpassword == "") {
+            alert('Enter Password of Student');
+            return false;
+        }
+        return true;
+    }
+    </script>
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="/Home/Index"><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About us</a></li>
+        <li><a href="/Home/Career">Career</a></li>
+        <li><a href="/Home/Gallery">Gallery</a></li>
+          <li><a href="/Home/Admin">Admin</a></li>
+          <li><a href="/Home/Contact">Contac Us</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+<div class="wrapper col2">
+  <div id="featured_slide">
+    <div class="featured_box"><a href="#"><img src="~/images/1.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/2.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/3.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/4.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/5.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/6.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/7.jpg" alt="" /></a>
+      
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/8.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/9.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/10.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/11.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/12.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/13.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/14.jpg" alt="" /></a>
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/15.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/16.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/17.jpg" alt="" /></a>
+      </div>
+  </div>
+</div>
+<!--############################################################################################################## -->
+<div class="wrapper col3">
+  <div id="homecontent">
+    <div class="fl_left">
+      <div class="column2">
+        <ul>
+          <li>
+            <h2>About School</h2>
+            <div class="imgholder"><img src="~/images/8.jpg" alt="" /></div>
+            <p>One of the Famous school in this country.</p>
+            <p>MoreThan 1000 Students are studyin there.We have also Well qualified staff.</p>
+          </li>
+          <li class="last">
+            <h2>Oficically Awesom</h2>
+            <div class="imgholder"><img src="~/images/9.jpg" alt="" /></div>
+            <p>Our Students have Great achievements with their compitator.</p>
+            <p>Our students are also part of Geniuss worl record during Punjab Youth Festival.</p>
+            
+          </li>
+        </ul>
+        <br class="clear" />
+      </div>
+    </div>
+    <div class="fl_right">
+      <h2>Activities</h2>
+      <ul>
+        <li>
+          <div class="imgholder"><a href="#"><img src="~/images/10.jpg" alt="" /></a></div>
+          <p><strong><a href="#">Our school have different socities.</a></strong></p>
+          <p>These socities arrange different Events in our school for student extracricular activities.</p>
+        </li>
+        <li>
+          
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+
+
+<!--############################################################################################################## -->
+
+
+
+
+<!--############################################################################################################## -->

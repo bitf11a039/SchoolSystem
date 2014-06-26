@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Gellery";
+}
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="/Home/Index">Home</a></li>
+        <li><a href="/Home/About">About us</a></li>
+        <li><a href="/Home/Career">Career</a></li>
+          <li><a href="/Home/Contact">Contac Us</a></li>
+          <li><a href="/Home/Admin">Admin</a></li>
+          <li><a href="/Home/Login">LogIn</a></li>
+      
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            $(".fancybox").fancybox({
+                maxWidth: 800,
+                maxHeight: 600,
+                fitToView: false,
+                width: '70%',
+                height: '70%',
+                autoSize: true,
+                closeClick: true,
+                openEffect: true,
+                closeEffect: 'none',
+            });
+        });
+      </script>
+    <table style="width:0px;" >
+       <tr>
+        @foreach(var p in Model)
+        {
+             
+                <td>
+                  <a href ="@p.Imagepath" class="fancybox" rel="group">
+                        <img style="width:280px; height:250px;" src="@p.Imagepath" alt="" id="image"/></a>
+                </td>
+             
+        }
+           </tr>
+        </table>
+<!--############################################################################################################## -->
+<div class="wrapper col3">
+<form action="/Home/uploading" method="post" enctype="multipart/form-data" >
+    <br><br><br>
+    Upload Image: <input type="file" name="image" />
+    <input type="submit" value="upload" />
+</form>
+        </div>
+<!--############################################################################################################## -->
+
+
+<!--############################################################################################################## -->
+
+
+
+
+<!--############################################################################################################## -->

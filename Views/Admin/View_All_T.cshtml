@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "View_All_T";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="/Home/Index">Home</a></li>
+          <li><a href="/Admin/Teacher">Teachers</a></li>
+          <li><a href="/Home/Gallery">Gallery</a></li>
+        <li><a href="/Home/Logout">Logout</a></li>
+        
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+<div class="wrapper col2">
+  <div id="featured_slide">
+    <div class="featured_box"><a href="#"><img src="~/images/1.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/2.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/3.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/4.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/5.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/6.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/7.jpg" alt="" /></a>
+      
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/8.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/9.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/10.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/11.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/12.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/13.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/14.jpg" alt="" /></a>
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/15.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/16.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/17.jpg" alt="" /></a>
+      </div>
+  </div>
+</div><!--############################################################################################################## -->
+<div class="wrapper col3">
+  <div id="container">
+    <div id="content">
+     <div>
+        <table border='1'>
+            <tr>
+                <td>Teacher User Name</td>
+                <td>Teacher First Name</td>
+                <td>Teacher Last Name</td>
+                <td>Student Salary</td>
+                <td>Student Password</td>
+             <tr>
+        foreach (var std in ViewBag.student)
+        {
+             <tr>
+                 
+                 
+                 <td>yasir</td>
+                 <td>mughal</td>
+               
+
+             </tr>
+        }    
+        </table>
+    </div>
+        </div>
+      </div>
+    </div>
+<!--############################################################################################################## -->
+ 
+<script>
+     function validate_Account() {
+         var rollnum = $('#Roll_number').val();
+         if (rollnum == "") {
+             alert('Enter Roll number Student');
+             return false;
+         }
+         return true;
+     }
+ </script>
+<!--############################################################################################################## -->
+
+      <div id="column">
+      <div class="subnav">
+       <h2>Teachers Navigation</h2>
+        <ul>
+          <li><a href="/Admin/Student_Account">Create Accounts</a></li>
+            <li><a href="Admin/Fee"><h2>Fee's Managment</h2></a>
+         </ul>
+            <ul>
+                <li><a href="/Admin/T_Attendence">Check Attendence</a></li>
+             
+            </ul>
+       </div>
+      </div>
+
+
+
+
+

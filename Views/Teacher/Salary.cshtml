@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Salary";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="/Home/Index">Home</a></li>
+          <li><a href="/Teacher/Attendence">Attendence</a></li>
+          <li><a href="/Home/Gallery">Gallery</a></li>
+        <li><a href="/Home/Logout">Logout</a></li>
+        
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+<div class="wrapper col2">
+  <div id="featured_slide">
+    <div class="featured_box"><a href="#"><img src="~/images/1.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/2.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/3.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/4.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/5.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/6.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/7.jpg" alt="" /></a>
+      
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/8.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/9.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/10.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/11.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/12.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/13.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/14.jpg" alt="" /></a>
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/15.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/16.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/17.jpg" alt="" /></a>
+      </div>
+  </div>
+</div>
+<!--############################################################################################################## -->
+<div class="wrapper col3">
+  <div id="container">
+    <div id="content">
+     </div>
+        <div>
+        <table border='1'>
+            <tr>
+
+                <td>Username</td>
+                <td>Date</td>
+                <td>Salaery</td>
+                
+             <tr>
+                 
+        @foreach (var std in Model)
+        {
+             <tr>
+                 <td>@std.T_Username</td>
+                 <td>@std.Salary1</td>
+                 <td>@std.Date</td>
+              </tr>
+            
+        }    
+        </table>
+        </div>
+      </div>
+    </div>
+

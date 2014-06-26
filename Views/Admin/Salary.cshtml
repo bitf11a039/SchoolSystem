@@ -1,0 +1,162 @@
+﻿@{
+    ViewBag.Title = "Salary";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="/Home/Index">Home</a></li>
+          <li><a href="/Admin/Teacher">Teachers</a></li>
+          <li><a href="/Home/Gallery">Gallery</a></li>
+        <li><a href="/Home/Logout">Logout</a></li>
+        
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+<div class="wrapper col2">
+  <div id="featured_slide">
+    <div class="featured_box"><a href="#"><img src="~/images/1.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/2.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/3.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/4.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/5.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/6.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/7.jpg" alt="" /></a>
+      
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/8.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/9.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/10.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/11.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/12.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/13.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/14.jpg" alt="" /></a>
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/15.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/16.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/17.jpg" alt="" /></a>
+      </div>
+  </div>
+</div><!--############################################################################################################## -->
+<div class="wrapper col3">
+  <div id="container">
+         <div id="content">
+             </div> 
+      
+        <h1>: Check Salary Status of Teacher :</h1>
+      <div id="checking">Checking....</div>
+      <div id="result"></div>
+        <form method="post" id="create" onsubmit="return validate_Account();">
+              Username:<br>
+              <input type="text" name="Username" id="Username" value="" />
+              <br><br> 
+            <p>   
+                 <input type="button" name="Check" id="Check"  value="Check"/>
+              &nbsp;
+              <input type="reset" name="A-reset" id="A-reset" value="Reset" />
+              </p>  
+              <br><br />   
+        </form>
+          </div>
+      </div>
+    
+
+
+<!--############################################################################################################## -->
+<script>
+    function validate_Account() {
+
+        if ($('#payed').val() == "" || $('#non-payed').val() == "") {
+            alert('Please check Fee Status');
+            return false;
+        }
+        return true;
+    }
+ </script> 
+
+@Scripts.Render("../bundles/jquery")
+
+<script>
+          $(document).ready(function () {
+
+              $('#checking').hide();
+              $('#Enter').hide();
+              $('#Check').click(function () {
+
+                  $('#checking').show();
+                  var rollnum = $("#Username").val();
+                  $.getJSON("/Admin/CheckUserName_T?UserName=" + rollnum, function (data) {
+                      $('#checking').hide();
+                      if (data) {
+                          $('#result').text("User already exists");
+                          $('#Enter').show();
+
+                      }
+                      else {
+                          $('#result').text("User Name is not available");
+                      }
+                  });
+
+              });
+
+          });
+ </script>
+<!--############################################################################################################## -->
+
+      <div id="column">
+      <div class="subnav">
+       <h2>Teacher Navigation</h2>
+        <ul>
+          <li><a href="/Admin/Add_Salary">ADD Salary</a></li>
+         </ul>
+            <ul>
+                <li><a href="/Admin/View_Salary">View Salary</a></li>
+              <li><a href="/Admin/View_All_Salaries">View All Teachers Salary</a></li>
+            </ul>
+       </div>
+      </div>
+
+
+
+

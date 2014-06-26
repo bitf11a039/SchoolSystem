@@ -1,0 +1,170 @@
+﻿@model Management_Entity.Models.Student
+
+@{
+    ViewBag.Title = "Create_Account";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="/Home/Index">Home</a></li>
+          <li><a href="/Admin/Teacher">Teachers</a></li>
+          <li><a href="/Home/Gallery">Gallery</a></li>
+        <li><a href="/Home/Logout">Logout</a></li>
+        
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+<div class="wrapper col2">
+  <div id="featured_slide">
+    <div class="featured_box"><a href="#"><img src="~/images/1.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/2.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/3.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/4.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/5.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/6.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/7.jpg" alt="" /></a>
+      
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/8.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/9.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/10.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/11.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/12.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/13.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/14.jpg" alt="" /></a>
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/15.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/16.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/17.jpg" alt="" /></a>
+      </div>
+  </div>
+</div>
+<!--############################################################################################################## -->
+<div class="wrapper col3">
+  <div id="container">
+    <div id="content">
+      </div>
+        <h1>: New Account For Student :</h1>
+        @*<form action="/Admin/Add_Std" method="post" id="create" onsubmit="return validate_Account();"> *@
+        
+        @using (Html.BeginForm("Add_Std", "Admin", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true);
+            @Html.AntiForgeryToken()    
+             <!-- <input type="text" name="Username" id="Username" value="" />-->
+            
+            @Html.Label("User Name :") <br>
+            <br><br> 
+                                         //@Html.TextBox("Username")
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+            <br><br>
+            @Html.Label("Student First Name:")<br>
+            <br><br>
+                                         //@Html.TextBox("Fname")
+           @Html.EditorFor(model => model.F_name)
+            @Html.ValidationMessageFor(model => model.F_name)
+            
+            <br><br>    
+            @Html.Label("Student Last Name:")<br >
+                                         //@Html.TextBox("Lname" )
+            @Html.EditorFor(model => model.L_name)
+            @Html.ValidationMessageFor(model => model.L_name)
+            <br><br>
+            @Html.DropDownList("Class", new SelectList(new[] { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten" }));
+            <br><br>
+            @Html.Label(" Password:")<br >
+            <br><br>
+                                                                                                                                     //@Html.Password("Studentpass")
+            @Html.PasswordFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+            <br><br>
+            @Html.Label("Confirm password:")<br>
+            <br><br>
+                                                                                                                                     //@Html.Password("Cpassword")
+             @Html.PasswordFor(model => model.CPassword)
+            @Html.ValidationMessageFor(model => model.CPassword)
+            <br><br>
+            <p>
+            <input type="submit" name="Save" id="Save" value="submit" />
+             &nbsp;
+            <input type="reset" name="A-reset" id="A-reset" value="Reset" />
+             </p>
+        }
+      </div>
+    </div>
+<!--############################################################################################################## -->
+ <script>
+     function validate_Account() {
+         var password = $('#model=> model.Password').val();
+         var cpass = $('#CPassword').val();
+         if (password != cpass) {
+             alert('Enter correct confirm-Password ');
+             return false;
+         }
+         else {
+             return true;
+         }
+     }
+ </script>
+<!--############################################################################################################## -->
+
+@Scripts.Render("~/bundles/jqueryval")
+      
+
+<div id="column">
+      <div class="subnav">
+        <h2>Student Navigation</h2>
+        <ul>
+          <li><a href="/Admin/Fee">Fee's Managment</a>
+              </ul>
+          <ul>
+              <li><a href="#">Check Attendence</a></li>
+              <li><a href="/Admin/View_All_Std">View All Students</a></li>
+         </ul>
+       </div>
+      </div>
+

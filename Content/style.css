@@ -1,0 +1,107 @@
+/* Website template by freewebsitetemplates.com */
+
+.clearfix {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.phone, .mail, .home, .fax, #footnote .connect a {
+	background: url(../images/icons.png) no-repeat;
+}
+
+.main {
+	float: right;
+	min-height: 960px;
+	width: 600px;
+	padding: 0 0 0 32px;
+}
+.main h1 {
+	margin-bottom: 18px;
+}
+.main h2 {
+	margin-bottom: 12px;
+}
+.main h1 + h2 {
+	margin: 0;
+}
+.main h1 + div.frame3 {
+	margin-top: 36px;
+}
+.main > .section {
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	width: 600px;
+	margin-bottom: 16px;
+	margin-left: -28px;
+	padding-left: 30px;
+}
+.main > .last-child, .sidebar ul li.last-child {
+	background: none;
+}
+.main > .section ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.main > .section ul li {
+	display: inline-block;
+	margin: 0 0 24px;
+}
+.main > .section ul li .frame4 {
+	float: left;
+	margin-bottom: 1px;
+	margin-right: 20px;
+}
+.main > .section ul li p {
+	margin: 6px 0 0;
+}
+.main > .section ul li p b {
+	display: block;
+	text-transform: uppercase;
+}
+
+.message label {
+	color: #626262;
+	display: block;
+	font: 13px/24px Arial, Helvetica, sans-serif;
+}
+.message input[type='text'] {
+	height: 24px;
+	width: 590px;
+	margin: 0 0 18px;
+	padding: 0 4px;
+}
+.message textarea {
+	height: 110px;
+	width: 590px;
+	margin: 0 0 18px;
+	padding: 0 4px;
+	overflow: auto;
+	resize: none;
+}
+
+
+#footnote .connect {
+	float: left;
+	display: inline-block;
+	margin: 0 10px;
+	padding: 6px 0;
+}
+#footnote .connect a {
+	display: inline-block;
+	height: 18px;
+	width: 18px;
+	margin-right: 6px;
+}
+#footnote .connect a.facebook {
+	background-position: 0 -112px;
+}
+#footnote .connect a.twitter {
+	background-position: 0 -140px;
+}
+#footnote .connect a.googleplus {
+	background-position: 0 -168px;
+}
+#footnote .connect a.pinterest {
+	background-position: 0 -196px;
+}

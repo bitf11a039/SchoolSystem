@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "Mark_Attendence";
+}
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="/Home/Index">Home</a></li>
+        <li class="active"><a href="/Teacher/T_Attendence">Teacher Attendence</a></li>
+          <li class="active"><a href="/Teacher/View_T_Attendence">View Teacher Attendence</a></li>
+        
+        <li><a href="/Home/Logout">Logout</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+<div class="wrapper col2">
+  <div id="featured_slide">
+    <div class="featured_box"><a href="#"><img src="~/images/1.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/2.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/3.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/4.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/5.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/6.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/7.jpg" alt="" /></a>
+      
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/8.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/9.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/10.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/11.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/12.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/13.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/14.jpg" alt="" /></a>
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/15.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/16.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/17.jpg" alt="" /></a>
+      </div>
+  </div>
+</div>
+<!--############################################################################################################## -->
+<div class="wrapper col3">
+  <div id="container">
+    <div id="content">
+      </div>
+        <h1>: Mark Student Attendence :</h1>
+      <div id="checking">Checking....</div>
+      <div id="result"></div>
+        <form action="/Teacher/Student_Attendence" method="post" id="create" onsubmit="return validate_Account();">
+                  Username:<br>
+              <input type="text" name="Username" id="Username" value="" />
+              <br><br>
+
+             Date:<br>
+              <input type="date" name="datepicker" id="datepicker" value="" />
+              <br><br>
+            
+            Class:
+               <select name="Class">
+                   <option>one</option>
+                   <option>two</option>
+                   <option>three</option>
+                   <option>four</option>
+                   <option>five</option>
+                   <option>six</option>
+                   <option>seven</option>
+                   <option>eight</option>
+                   <option>nine</option>
+                   <option>ten</option>
+                   </select>
+              <br><br>     
+             <input type="radio" name="rb" id="payed" value="Payed" />Present
+                  <input type="radio" name="rb" id="non-payed" value="Non_payed" />Absent 
+              <div id="Check">
+              
+              <input type="submit" name="Enter" id="Enter"  />
+             
+             </div>
+           
+              <input type="button" name="check" id="check" value="Check USername" />
+              
+              <input type="reset" name="A-reset" id="A-reset" value="Reset" />
+              <br><br />   
+        </form>
+       
+      </div>
+    </div>
+
+<!--############################################################################################################## -->
+<script>
+    function validate_Account() {
+
+        if ($('#payed').val() == "" || $('#non-payed').val() == "")
+        {
+            alert('Please check Fee Status');
+            return false;
+        }
+        if ($('#Username').val() == "" )
+        {
+            alert('Please check Fee Status');
+            return false;
+        }
+        return true;
+    }
+ </script> 
+
+@Scripts.Render("../bundles/jquery")
+
+<script>
+          $(document).ready(function () {
+
+              $('#checking').hide();
+              $('#Enter').hide();
+              $('#check').click(function () {
+
+                  $('#checking').show();
+                  var Username = $("#Username").val();
+                  $.getJSON("/Admin/CheckUserName?UserName=" + Username, function (data) {
+                      $('#checking').hide();
+                      if (data) {
+                          $('#result').text("User already exists");
+                          $('#Enter').show();
+
+                      }
+                      else {
+                          $('#result').text("User Name is not available");
+                      }
+                  });
+
+              });
+
+          });
+ </script>
+
+<!--############################################################################################################## -->
+
+
+
+
+<!--############################################################################################################## -->
+

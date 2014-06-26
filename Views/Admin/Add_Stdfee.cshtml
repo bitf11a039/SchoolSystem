@@ -1,0 +1,179 @@
+﻿@{
+    ViewBag.Title = "Add_Fee";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<!--############################################################################################################## -->
+
+<div class="wrapper col1">
+  <div id="header">
+    <div id="logo">
+        </div>
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="/Home/Index">Home</a></li>
+          <li><a href="/Admin/Teacher">Teachers</a></li>
+          <li><a href="/Home/Gallery">Gallery</a></li>
+        <li><a href="/Home/Logout">Logout</a></li>
+        
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+<!--############################################################################################################## -->
+<div class="wrapper col2">
+  <div id="featured_slide">
+    <div class="featured_box"><a href="#"><img src="~/images/1.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/2.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/3.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/4.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/5.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/6.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/7.jpg" alt="" /></a>
+      
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/8.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/9.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/10.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/11.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/12.jpg" alt="" /></a>
+      
+    </div>
+	<div class="featured_box"><a href="#"><img src="~/images/13.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/14.jpg" alt="" /></a>
+    </div>
+      <div class="featured_box"><a href="#"><img src="~/images/15.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/16.jpg" alt="" /></a>
+      
+    </div>
+    <div class="featured_box"><a href="#"><img src="~/images/17.jpg" alt="" /></a>
+      </div>
+  </div>
+</div>
+<!--############################################################################################################## -->
+<div class="wrapper col3">
+  <div id="container">
+    <div id="content">
+      </div>
+        <h1>: Enter Fee Status :</h1>
+      <div id="checking">Checking....</div>
+      <div id="result"></div>
+        <form action="/Admin/Add_Fee" method="post" id="create" onsubmit="return validate_Account();">
+                  Username:<br>
+              <input type="text" name="Username" id="Username" value="" />
+              <br><br>
+                Date:<br>
+              <input type="date" name="datepicker" id="datepicker" value="" />
+              <br><br>
+            <input type="radio" name="rb" id="payed" value="Payed" />payed
+                  <input type="radio" name="rb" id="non-payed" value="Non_payed" />non-payed    
+            <div id="Check">
+              <p>  
+              <input type="submit" name="Enter" id="Enter"  />
+              </p>
+             </div>
+                  &nbsp;
+            <p>
+              <input type="button" name="check" id="check" value="Check USername" />
+              </p> 
+            <p>
+              <input type="reset" name="A-reset" id="A-reset" value="Reset" />
+              </p>  
+              <br><br />   
+        </form>
+       
+      </div>
+    </div>
+
+
+<!--############################################################################################################## -->
+ 
+<script>
+     function validate_Account() {
+         if ($('#Username').val() == "")
+         {
+             alert('Please Enter Username');
+             return false;
+         }
+         if ($('#datepicker').val() == "") {
+             alert('Enter Date');
+             return false;
+         }
+         if (document.getElementById("payed").value == "" && document.getElementById("non-payed").value == "")
+         {
+             alert('Enter select radio Button');
+             return false;
+         }
+         return true;
+     }
+ </script>
+@Scripts.Render("../bundles/jquery")
+
+<script>
+    $(document).ready(function () {
+
+        $('#checking').hide();
+        $('#Check').hide();
+        $('#check').click(function () {
+
+            $('#checking').show();
+            var rollnum = $("#Username").val();
+            $.getJSON("/Admin/CheckUserName?UserName=" + rollnum, function (data) {
+                $('#checking').hide();
+                if (data) {
+                    $('#result').text("User already exists");
+                    $('#Check').show();
+
+                }
+                else {
+                    $('#result').text("User Name is not available");
+                }
+            });
+
+        });
+
+    });
+ </script>
+<!--############################################################################################################## -->
+
+     <div id="column">
+      <div class="subnav">
+       <h2>Students Navigation</h2>
+            <ul>
+                <li><a href="/Admin/ViewStd_Fee">View Fee</a></li>
+              <li><a href="/Admin/View_All_Std">View All Students Fee</a></li>
+            </ul>
+       </div>
+      </div>
+
+
+
