@@ -118,13 +118,13 @@
             <br><br>
             @Html.Label(" Password:")<br >
             <br><br>
-                                                                                                                                     //@Html.Password("Studentpass")
+                  //@Html.Password("Studentpass")
             @Html.PasswordFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password)
             <br><br>
             @Html.Label("Confirm password:")<br>
             <br><br>
-                                                                                                                                     //@Html.Password("Cpassword")
+                //@Html.Password("Cpassword")
              @Html.PasswordFor(model => model.CPassword)
             @Html.ValidationMessageFor(model => model.CPassword)
             <br><br>
@@ -137,19 +137,7 @@
       </div>
     </div>
 <!--############################################################################################################## -->
- <script>
-     function validate_Account() {
-         var password = $('#model=> model.Password').val();
-         var cpass = $('#CPassword').val();
-         if (password != cpass) {
-             alert('Enter correct confirm-Password ');
-             return false;
-         }
-         else {
-             return true;
-         }
-     }
- </script>
+
 <!--############################################################################################################## -->
 
 @Scripts.Render("~/bundles/jqueryval")

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Management_Entity.Models.Fee
+@{
     ViewBag.Title = "Salary";
 }
 @{
@@ -87,17 +88,25 @@
         <h1>: Check Salary Status of Teacher :</h1>
       <div id="checking">Checking....</div>
       <div id="result"></div>
-        <form method="post" id="create" onsubmit="return validate_Account();">
-              Username:<br>
-              <input type="text" name="Username" id="Username" value="" />
-              <br><br> 
+        @*<form method="post" id="create" onsubmit="return validate_Account();">*@
+      @using (Html.BeginForm(FormMethod.Post))
+        {
+            @Html.ValidationSummary(true);
+            @Html.AntiForgeryToken()    
+             <!-- <input type="text" name="Username" id="Username" value="" />-->
+            
+            @Html.Label("Username :") <br>
+            <br><br> 
+                                         //@Html.TextBox("Username")
+            @Html.EditorFor(model => model.Student_Username)
+            @Html.ValidationMessageFor(model=> model.Student_Username)
             <p>   
                  <input type="button" name="Check" id="Check"  value="Check"/>
               &nbsp;
               <input type="reset" name="A-reset" id="A-reset" value="Reset" />
               </p>  
               <br><br />   
-        </form>
+      }
           </div>
       </div>
     
@@ -115,7 +124,7 @@
     }
  </script> 
 
-@Scripts.Render("../bundles/jquery")
+@*@Scripts.Render("../bundles/jquery")
 
 <script>
           $(document).ready(function () {
@@ -141,9 +150,10 @@
               });
 
           });
- </script>
+ </script>*@
 <!--############################################################################################################## -->
 
+@Scripts.Render("~/bundles/jqueryval")
       <div id="column">
       <div class="subnav">
        <h2>Teacher Navigation</h2>
